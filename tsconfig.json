@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "storybook__react",
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "packages/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "stories/**/*.ts",
+    "stories/**/*.tss",
+    "stories/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "packages/**/src/**/*.ts",
+    "packages/**/src/**/*.tsx",
+    "packages/**/src/**/*.vue",
+    "packages/**/tests/**/*.ts",
+    "packages/**/tests/**/*.tsx", "packages/foundation/src/components/Modal/Modal.stories.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "packages/**/node_modules",
+    "dist",
+    "packages/**/dist",
+    "storybook-static"
+  ],
+  "files": [
+    "shims/vue.d.ts",
+    "shims/other.d.ts"
+  ]
+}

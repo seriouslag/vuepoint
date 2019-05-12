@@ -1,0 +1,22 @@
+{
+  "name": "@nullspace/foundation",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --module commonjs --name @nullspace/foundation ./src/index.ts"
+  },
+  "buildEntry": "src/index.ts",
+  "main": "dist/@nullspace/foundation.common.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "peerDependencies": {
+    "vue": "2.x",
+    "bulma": "^0.7.4"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+  
+}
