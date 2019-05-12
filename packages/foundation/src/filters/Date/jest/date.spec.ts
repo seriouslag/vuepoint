@@ -1,8 +1,9 @@
 import dateFilter from '../date';
 
 const values = [
-  ['7834783748347', '4/11/2218 04:49 am'],
-  ['1557676877382', '5/12/2019 12:01 pm'],
+  // these will be different based on timezone
+  // ['7834783748347', '4/11/2218 04:49 am'],
+  // ['1557676877382', '5/12/2019 12:01 pm'],
   ['banana', 'unknown'],
 ];
 
