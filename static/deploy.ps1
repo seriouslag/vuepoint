@@ -4,6 +4,16 @@ param(
     [string]$releaseMessage
 )
 
+$dir = Split-Path $MyInvocation.MyCommand.Path
+write-host "dir: $dir";
+write-host "working dir: $(System.DefaultWorkingDirectory)"
+
+$a12 = $firebaseToken;
+$a13 = $firebaseProject;
+
+write-host "vars $a12 $a13";
+
+write-host "Installing firebase tools...";
 npm i -g firebase-tools
 write-host "starting deploy...";
 firebase --version;
