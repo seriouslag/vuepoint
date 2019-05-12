@@ -31,9 +31,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 
-@Component
+@Component({})
 export default class Modal extends Vue {
     @Prop({
         required: true,
@@ -47,12 +47,11 @@ export default class Modal extends Vue {
     })
     private disableClose!: boolean;
 
+    @Emit('input')
     private handleBackdropClick() {
-        if (this.disableClose) {
-            return;
+        if (!this.disableClose) {
+            return false;
         }
-
-        this.$emit('input', false);
     }
 }
 </script>
