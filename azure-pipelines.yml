@@ -21,5 +21,9 @@ steps:
   displayName: 'install and bootstrap'
 
 - script: |
+    yarn test:unit
+  displayName: 'run unit tests'
+
+- script: |
     yarn storybook:build
   displayName: 'build'
