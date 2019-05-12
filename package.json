@@ -7,7 +7,7 @@
     "serve": "yarn storybook:serve",
     "build": "lerna run build",
     "lint": "vue-cli-service lint",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook -s ./public",
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook -s ./public -o ./static/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook -s ./public",
     "test:unit": "vue-cli-service test:unit"
   },
