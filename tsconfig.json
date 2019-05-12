@@ -40,7 +40,7 @@
     "packages/**/src/**/*.tsx",
     "packages/**/src/**/*.vue",
     "packages/**/tests/**/*.ts",
-    "packages/**/tests/**/*.tsx", "packages/foundation/src/components/Modal/Modal.stories.js"
+    "packages/**/tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
