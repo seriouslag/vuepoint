@@ -29,6 +29,10 @@ const dateFilter = (value: any) => {
     minsAsString = `0${mins}`;
   }
 
+  if (Number.isNaN(date.getMonth() + 1) || Number.isNaN(date.getDate()) || Number.isNaN(date.getFullYear()) ||
+    Number.isNaN(hours) || Number.isNaN(mins) || Number.isNaN(mins)) {
+      return 'unknown';
+  }
 
   return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} ${hoursAsString}:${minsAsString} ${meridian}`;
 };
