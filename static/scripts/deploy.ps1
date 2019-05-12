@@ -1,6 +1,6 @@
 param(
-    [string]$fireBaseToken,
-    [string]$fireBaseProject,
+    [string]$firebaseToken,
+    [string]$firebaseProject,
     [string]$releaseMessage
 )
 $dir = Split-Path $MyInvocation.MyCommand.Path
