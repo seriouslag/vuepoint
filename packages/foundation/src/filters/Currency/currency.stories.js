@@ -23,10 +23,10 @@ storiesOf('Foundation|Filters', module)
         </tr>
         <tr v-for="value in values">
           <td>
-            {{ value }}
+            {{ value[0] }}
           </td>
           <td>
-            {{ value | toCurrency }}
+            {{ value[0] | toCurrency }}
           </td>
         </tr>
       </table>
