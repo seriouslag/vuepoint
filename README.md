@@ -3,21 +3,27 @@
 ## Project setup
 ```
 yarn install
+yarn bootstrap
 ```
 
-### Compiles and hot-reloads for development
+### Compiles storybook and hot-reloads for development
 ```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
+yarn serve
 ```
 
-### Run your tests
+### Compiles and minifies storybook for deployment
 ```
-yarn run test
+yarn storybook:build
+```
+
+### Compiles and minifies packages for production
+```
+yarn build
+```
+
+### Run unit tests
+```
+yarn test:unit
 ```
 
 ### Lints and fixes files
