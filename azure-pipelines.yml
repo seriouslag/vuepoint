@@ -30,5 +30,5 @@ steps:
 
 - task: PublishPipelineArtifact@0
   inputs:
-    artifactName: 'site'
+    artifactName: 'storybook-static'
     targetPath: 'storybook-static'
