@@ -4,6 +4,9 @@ const currencyFilter = (value: string | number) => {
   let newValue = value;
   if (typeof newValue === 'string') {
     newValue = parseFloat(newValue);
+    if (Number.isNaN(newValue)) {
+      return value;
+    }
   }
   if (isNaN(newValue) || typeof newValue !== 'number') {
     return newValue;
