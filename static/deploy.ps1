@@ -1,14 +1,13 @@
-# param(
-#     [string]$firebaseToken,
-#     [string]$firebaseProject,
-#     [string]$releaseMessage
-# )
+param(
+    [string]$firebaseToken,
+    [string]$firebaseProject
+)
 
 $dir = Split-Path $MyInvocation.MyCommand.Path
 write-host "dir: $dir";
 
-$a12="$(firebaseToken)";
-$a13="$(firebaseProject)";
+$a12="$firebaseToken";
+$a13="$firebaseProject";
 
 write-host "vars $($a12 -split '') $($a13 -split '')";
 
