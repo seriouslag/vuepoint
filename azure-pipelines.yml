@@ -17,8 +17,11 @@ steps:
 
 - script: |
     yarn install
+  displayName: 'install'
+
+- script: |
     yarn bootstrap
-  displayName: 'install and bootstrap'
+  displayName: 'bootstrap'
 
 - script: |
     yarn test:unit
