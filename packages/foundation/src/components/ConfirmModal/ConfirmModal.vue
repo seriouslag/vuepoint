@@ -19,7 +19,7 @@
             </button>
             <slot name="confirm" />
         </div>
-      </modal>
+    </modal>
 </template>
 
 <script lang="ts">
