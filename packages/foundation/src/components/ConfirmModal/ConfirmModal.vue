@@ -7,10 +7,10 @@
             <slot name="header"/>
         </div>
         <slot />
-          <div
+        <div
             slot="footer"
             class="buttons"
-          >
+        >
             <button
                 class="button is-info"
                 @click="cancel"
@@ -18,7 +18,7 @@
                 Cancel
             </button>
             <slot name="confirm" />
-          </div>
+        </div>
       </modal>
 </template>
 
@@ -37,12 +37,12 @@ export default class ConfirmModal extends Vue {
         required: true,
         default: false,
     })
-    private value: boolean = false;
+    private value!: boolean;
 
     @Prop({
         default: false,
     })
-    private disableClose: boolean = false;
+    private disableClose!: boolean;
 
     @Emit('delete')
     private emitDelete() {
