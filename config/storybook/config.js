@@ -1,16 +1,21 @@
+import Vue from 'vue';
+import Vuex from 'vuex';
+
 import { addDecorator, configure } from '@storybook/vue';
+import { loadStories } from './require';
+
+// this store 
+import store from './store';
 
 import 'bulma/css/bulma.css';
 
-const req = require.context('../../packages/foundation/src', true, /\.stories.js$/);
-
-function loadStories() {
-  req.keys().forEach(filename => req(filename));
-}
+Vue.use(Vuex);
+Vue.use(store);
 
 addDecorator(() => ({
   template: `
     <div style="padding: 10px;">
+      <store />
       <story />
     </div>
   `

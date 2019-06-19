@@ -1,11 +1,11 @@
 {
-  "name": "@nullspace/foundation",
+  "name": "@nullspace/instagram",
   "version": "0.1.0",
   "scripts": {
-    "build": "vue-cli-service build --target lib --module commonjs --name @nullspace/foundation ./src/index.ts"
+    "build": "vue-cli-service build --target lib --module commonjs --name @nullspace/instagram ./src/index.ts"
   },
   "buildEntry": "src/index.ts",
-  "main": "dist/@nullspace/foundation.common.js",
+  "main": "dist/@nullspace/instagram.common.js",
   "files": [
     "dist",
     "src"

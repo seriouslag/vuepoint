@@ -31,6 +31,7 @@
     ]
   },
   "include": [
+    "config/**/*.ts",
     "stories/**/*.ts",
     "stories/**/*.tss",
     "stories/**/*.vue",
