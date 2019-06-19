@@ -15,6 +15,9 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- script: yarn install
+  displayName: 'yarn install'
+
 - script: |
     yarn bootstrap
   displayName: 'bootstrap'
