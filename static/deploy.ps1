@@ -4,7 +4,7 @@ param(
 )
 
 write-host "Installing firebase tools...";
-npm i -g firebase-tools
+npm i -g firebase-tools@6.12.0
 write-host "starting deploy...";
 firebase --version;
 write-host "dir: $dir";
