@@ -13,7 +13,7 @@ storiesOf('Instagram|InstagramFeed', module)
         <instagram-feed
           :url="url"
           :access-token="accessToken"
-          :cound="count"
+          :count="count"
           @show="show"
           @loading="setLoading"
         />
@@ -21,9 +21,11 @@ storiesOf('Instagram|InstagramFeed', module)
     `,
     props: {
       accessToken: {
+        type: String,
         default: text('access_token', '1271829278.5496eb5.fb22e7b5e6bb4d93b9fdf1fa4ba9ce72'),
       },
       count: {
+        type: Number,
         default: number('count', 8),
       },
     },

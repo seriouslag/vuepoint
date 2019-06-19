@@ -86,9 +86,10 @@ export default class InstagramFeed extends Vue {
     this.emitShow();
   }
 
-  @Watch('fullUrl', { immediate: true, deep: true })
-  private urlWatcher(): void {
-    if (!this.feed.length && this.url && this.accessToken) {
+  @Watch('count', { immediate: true })
+  @Watch('accessToken', { immediate: true })
+  private urlWatcher(newVal: string, oldVal: string): void {
+    if (this.fullUrl && (!this.feed.length || newVal !== oldVal)) {
       this.fetchFeed();
     }
   }
@@ -103,6 +104,7 @@ export default class InstagramFeed extends Vue {
   }
 
   get fullUrl(): string {
+    if (!this.url || !this.accessToken) return '';
     return `${this.url}?access_token=${this.accessToken}&&count=${this.count}`;
   }
 
