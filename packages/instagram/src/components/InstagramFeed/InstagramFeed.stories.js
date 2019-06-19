@@ -11,7 +11,7 @@ storiesOf('Instagram|InstagramFeed', module)
       <div>
         <h2 class="title">{{ isShowing ? "Latest updates" : isLoading ? "Loading" : "No updates" }}</h2>
         <instagram-feed
-          :url="url"
+          :user-id="userId"
           :access-token="accessToken"
           :count="count"
           @show="show"
@@ -24,13 +24,21 @@ storiesOf('Instagram|InstagramFeed', module)
         type: String,
         default: text('access_token', '1271829278.5496eb5.fb22e7b5e6bb4d93b9fdf1fa4ba9ce72'),
       },
+      userId: {
+        type: String,
+        default: text('userId', '1271829278'),
+      },
       count: {
         type: Number,
-        default: number('count', 8),
+        default: number('count', 8, {
+          range: true,
+          min: 1,
+          max: 20,
+          step: 1,
+        }),
       },
     },
     data: () => ({
-      url: 'https://api.instagram.com/v1/users/1271829278/media/recent',
       isShowing: false,
       isLoading: false,
     }),

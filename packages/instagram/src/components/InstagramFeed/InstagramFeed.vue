@@ -1,5 +1,5 @@
 <template>
-<div class="instagram-feed" v-if="url && accessToken">
+<div class="instagram-feed" v-if="fullUrl">
   <div class="columns is-multiline is-centered">
     <div class="column" v-for="data in feed" :key="data.id">
       <a
@@ -51,7 +51,7 @@ export default class InstagramFeed extends Vue {
     type: String,
     default: '',
   })
-  private url!: string;
+  private userId!: string;
 
   @Prop({
     required: false,
@@ -74,9 +74,13 @@ export default class InstagramFeed extends Vue {
 
     try {
       this.isLoading = true;
-      const resposne = await fetch(this.fullUrl, options);
-      const instagram = await resposne.json() as Instagram;
-      this.feed = instagram.data;
+      const response = await fetch(this.fullUrl, options);
+      const instagram = await response.json() as Instagram || undefined;
+      if(instagram && instagram.data) {
+        this.feed = instagram.data;
+      } else {
+        throw new Error('Invalid Instagram response');
+      }
     } catch (e) {
       this.feed = [];
     } finally {
@@ -88,6 +92,7 @@ export default class InstagramFeed extends Vue {
 
   @Watch('count', { immediate: true })
   @Watch('accessToken', { immediate: true })
+  @Watch('userId', { immediate: true })
   private urlWatcher(newVal: string, oldVal: string): void {
     if (this.fullUrl && (!this.feed.length || newVal !== oldVal)) {
       this.fetchFeed();
@@ -100,12 +105,12 @@ export default class InstagramFeed extends Vue {
   }
 
   get query(): string {
-    return this.url.substring(this.url.indexOf('?'))
+    return this.fullUrl.substring(this.fullUrl.indexOf('?'))
   }
 
   get fullUrl(): string {
-    if (!this.url || !this.accessToken) return '';
-    return `${this.url}?access_token=${this.accessToken}&&count=${this.count}`;
+    if (!this.userId || !this.accessToken || !this.count) return '';
+    return `https://api.instagram.com/v1/users/${this.userId}/media/recent?access_token=${this.accessToken}&&count=${this.count}`;
   }
 
   @Emit('loading')
