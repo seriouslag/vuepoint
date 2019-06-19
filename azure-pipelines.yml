@@ -16,10 +16,6 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    yarn install
-  displayName: 'install'
-
-- script: |
     yarn bootstrap
   displayName: 'bootstrap'
 
