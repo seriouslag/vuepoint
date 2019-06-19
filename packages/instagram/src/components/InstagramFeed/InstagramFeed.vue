@@ -1,6 +1,5 @@
 <template>
-<div class="instagram-feed">
-  <h2 v-if="this.feed.length" class="title">Latest updates</h2>
+<div class="instagram-feed" v-if="url && accessToken">
   <div class="columns is-multiline is-centered">
     <div class="column" v-for="data in feed" :key="data.id">
       <a
@@ -37,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+import { Component, Prop, Vue, Emit, Watch } from 'vue-property-decorator';
 
 import { Instagram, InstagramData } from '../../models/response/Instagram';
 
@@ -45,16 +44,19 @@ import { Instagram, InstagramData } from '../../models/response/Instagram';
 export default class InstagramFeed extends Vue {
 
   private feed: InstagramData[] = [];
+  private isLoading: boolean = false;
 
   @Prop({
-    required: true,
-    type: String
+    required: false,
+    type: String,
+    default: '',
   })
   private url!: string;
 
   @Prop({
-    required: true,
-    type: String
+    required: false,
+    type: String,
+    default: ''
   })
   private accessToken!: string;
 
@@ -65,30 +67,48 @@ export default class InstagramFeed extends Vue {
   })
   private count!: number
 
-  private mounted() {
-    if (!this.feed.length) {
-      this.fetchFeed();
-    }
-  }
-
   private async fetchFeed() {
     const options: RequestInit = {
       method: 'GET',
     };
 
     try {
-      const resposne = await fetch(`${this.url}?access_token=${this.accessToken}&&count=${this.count}`, options);
+      this.isLoading = true;
+      const resposne = await fetch(this.fullUrl, options);
       const instagram = await resposne.json() as Instagram;
       this.feed = instagram.data;
     } catch (e) {
       this.feed = [];
+    } finally {
+      this.isLoading = false;
     }
 
     this.emitShow();
   }
 
+  @Watch('fullUrl', { immediate: true, deep: true })
+  private urlWatcher(): void {
+    if (!this.feed.length && this.url && this.accessToken) {
+      this.fetchFeed();
+    }
+  }
+
+  @Watch('isLoading', { immediate: true, deep: true })
+  private loadingWatech(): void {
+    this.emitLoading();
+  }
+
   get query(): string {
     return this.url.substring(this.url.indexOf('?'))
+  }
+
+  get fullUrl(): string {
+    return `${this.url}?access_token=${this.accessToken}&&count=${this.count}`;
+  }
+
+  @Emit('loading')
+  private emitLoading() {
+    return this.isLoading;
   }
 
   @Emit('show')

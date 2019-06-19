@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs } from '@storybook/addon-knobs/react'
+import { storiesOf } from '@storybook/vue';
+import { withKnobs, text, number } from '@storybook/addon-knobs/vue';
 
 import InstagramFeed from './InstagramFeed.vue'
 
@@ -9,16 +9,35 @@ storiesOf('Instagram|InstagramFeed', module)
     components: { InstagramFeed },
     template: `
       <div>
+        <h2 class="title">{{ isShowing ? "Latest updates" : isLoading ? "Loading" : "No updates" }}</h2>
         <instagram-feed
           :url="url"
           :access-token="accessToken"
           :cound="count"
+          @show="show"
+          @loading="setLoading"
         />
       </div>
     `,
+    props: {
+      accessToken: {
+        default: text('access_token', '1271829278.5496eb5.fb22e7b5e6bb4d93b9fdf1fa4ba9ce72'),
+      },
+      count: {
+        default: number('count', 8),
+      },
+    },
     data: () => ({
       url: 'https://api.instagram.com/v1/users/1271829278/media/recent',
-      accessToken: '1271829278.5496eb5.fb22e7b5e6bb4d93b9fdf1fa4ba9ce72',
-      count: 8,
+      isShowing: false,
+      isLoading: false,
     }),
+    methods: {
+      show(value) {
+        this.isShowing = value;
+      },
+      setLoading(loading) {
+        this.isLoading = loading;
+      }
+    }
   }));
