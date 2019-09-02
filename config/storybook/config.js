@@ -7,7 +7,7 @@ import { loadStories } from './require';
 // this store 
 import store from './store';
 
-import 'bulma/css/bulma.css';
+import 'bulma/bulma.sass';
 
 Vue.use(Vuex);
 Vue.use(store);
