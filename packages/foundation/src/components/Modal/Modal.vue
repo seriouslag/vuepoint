@@ -33,7 +33,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 
-@Component({})
+@Component
 export default class Modal extends Vue {
     @Prop({
         required: true,

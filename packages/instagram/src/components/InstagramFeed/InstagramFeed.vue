@@ -76,7 +76,7 @@ export default class InstagramFeed extends Vue {
       this.isLoading = true;
       const response = await fetch(this.fullUrl, options);
       const instagram = await response.json() as Instagram || undefined;
-      if(instagram && instagram.data) {
+      if (instagram && instagram.data) {
         this.feed = instagram.data;
       } else {
         throw new Error('Invalid Instagram response');
@@ -133,8 +133,8 @@ export default class InstagramFeed extends Vue {
     display: flex;
 
     .column {
-      min-width: 200px;
-      max-width: 400px;
+      min-width: 12.5em;
+      max-width: 25em;
 
       a {
         &.is-vid {
