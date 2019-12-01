@@ -5,9 +5,9 @@
 const foundation = require.context('../../packages/foundation/src', true, /\.stories.js$/);
 const instagram = require.context('../../packages/instagram/src', true, /\.stories.js$/);
 
-function loadStories() {
+function loadStories () {
   instagram.keys().forEach(instagram);
   foundation.keys().forEach(foundation);
 }
 
-export { loadStories }
+export { loadStories };

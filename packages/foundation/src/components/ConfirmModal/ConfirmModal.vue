@@ -2,7 +2,7 @@
     <modal
         :value="value"
         @input="cancel"
-    >   
+    >
         <div slot="header">
             <slot name="header"/>
         </div>
@@ -28,30 +28,30 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import Modal from '../Modal/Modal.vue';
 
 @Component({
-    components: {
-        Modal,
-    },
+  components: {
+    Modal,
+  },
 })
 export default class ConfirmModal extends Vue {
     @Prop({
-        required: true,
-        default: false,
+      required: true,
+      default: false,
     })
     private value!: boolean;
 
     @Prop({
-        default: false,
+      default: false,
     })
     private disableClose!: boolean;
 
     @Emit('delete')
-    private emitDelete() {
-        return;
+    private emitDelete () {
+      return;
     }
 
     @Emit('input')
-    private cancel() {
-        return false;
+    private cancel () {
+      return false;
     }
 }
 </script>

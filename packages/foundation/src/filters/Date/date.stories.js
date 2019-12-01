@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs, text } from '@storybook/addon-knobs/react'
+import { storiesOf } from '@storybook/vue';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import values from './values';
 
 import './date';
@@ -41,14 +41,14 @@ storiesOf('Foundation|Filters', module)
     `,
     props: {
       customValue: {
-        default: text('Custom value', 7834783748347)
-      }
+        default: text('Custom value', 7834783748347),
+      },
     },
     data: () => ({
       values,
       now: Date.now(),
     }),
-    created() {
+    created () {
       setInterval(() => this.now = Date.now(), 1000);
-    }
+    },
   }));

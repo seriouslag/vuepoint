@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs, text } from '@storybook/addon-knobs/react'
+import { storiesOf } from '@storybook/vue';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import values from './values';
 
 import './currency';
@@ -33,10 +33,10 @@ storiesOf('Foundation|Filters', module)
     `,
     props: {
       customValue: {
-        default: text('Custom value', 100)
-      }
+        default: text('Custom value', 100),
+      },
     },
     data: () => ({
-      values
-    })
+      values,
+    }),
   }));

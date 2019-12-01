@@ -36,22 +36,22 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 @Component
 export default class Modal extends Vue {
     @Prop({
-        required: true,
-        default: false,
+      required: true,
+      default: false,
     })
     private value!: boolean;
 
     @Prop({
-        required: false,
-        default: false,
+      required: false,
+      default: false,
     })
     private disableClose!: boolean;
 
     @Emit('input')
-    private handleBackdropClick() {
-        if (!this.disableClose) {
-            return false;
-        }
+    private handleBackdropClick () {
+      if (!this.disableClose) {
+        return false;
+      }
     }
 }
 </script>

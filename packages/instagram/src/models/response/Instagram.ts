@@ -1,13 +1,12 @@
-
 interface InstagramPagination {
-  next_max_id: string;
-  next_url: string;
+  next_max_id?: string;
+  next_url?: string;
 }
 
 interface InstagramData {
   id: string;
   user: InstagramUser;
-  images: InstagramImages;
+  images: InstagramImage;
   created_time: string;
   caption: InstagramCaption;
   user_has_liked: boolean;
@@ -15,11 +14,34 @@ interface InstagramData {
   tags: any[];
   filter: string;
   comments: InstagramCount;
-  type: string;
+  type: 'video' | 'image' |'carousel';
   link: string;
-  location: any;
+  location: Location;
   attribution: any;
   users_in_photo: InstagramUser[];
+  videos?: Video;
+  video_views?: number;
+  carousel_media?: CarouselMedia[];
+}
+
+interface CarouselMedia {
+  images?: InstagramImage;
+  videos?: Video;
+  users_in_photo: InstagramUser[];
+  type: 'video' | 'image';
+}
+
+interface Location {
+  latitude: number;
+  longitude: number;
+  nname: string;
+  id: number;
+}
+
+interface Video {
+  standard_resolution: InstagramMedia;
+  low_resolution: InstagramMedia;
+  low_bandwidth: InstagramMedia;
 }
 
 interface InstagramCaption {
@@ -29,20 +51,21 @@ interface InstagramCaption {
   from: InstagramUser;
 }
 
-interface InstagramImages {
-  thumbnail: InstagramImage;
-  low_resolution: InstagramImage;
-  standard_resolution: InstagramImage;
+interface InstagramImage {
+  thumbnail: InstagramMedia;
+  low_resolution: InstagramMedia;
+  standard_resolution: InstagramMedia;
 }
 
 interface InstagramCount {
   count: number;
 }
 
-interface InstagramImage {
+interface InstagramMedia {
   width: string;
   height: string;
   url: string;
+  id?: number;
 }
 
 interface InstagramUser {
@@ -66,10 +89,13 @@ export {
   Instagram,
   InstagramMeta,
   InstagramUser,
-  InstagramImage,
+  InstagramMedia,
   InstagramCount,
-  InstagramImages,
+  InstagramImage,
   InstagramCaption,
   InstagramData,
   InstagramPagination,
+  Video,
+  CarouselMedia,
+  Location,
 };

@@ -29,13 +29,16 @@ const dateFilter = (value: any) => {
     minsAsString = `0${mins}`;
   }
 
-  if (Number.isNaN(date.getMonth() + 1) || Number.isNaN(date.getDate()) || Number.isNaN(date.getFullYear()) ||
-    Number.isNaN(hours) || Number.isNaN(mins) || Number.isNaN(mins)) {
-      return 'unknown';
+  if (isDateValid(date) || Number.isNaN(hours) || Number.isNaN(mins)) {
+    return 'unknown';
   }
 
   return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} ${hoursAsString}:${minsAsString} ${meridian}`;
 };
+
+function isDateValid (date: Date) {
+  return Number.isNaN(date.getMonth() + 1) || Number.isNaN(date.getDate()) || Number.isNaN(date.getFullYear());
+}
 
 Vue.filter('toDate', dateFilter);
 

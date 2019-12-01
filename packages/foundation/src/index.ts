@@ -1,4 +1,4 @@
-import filters from './filters';
-import components from './components';
+import { dateFilter, currencyFilter } from './filters';
+import { ConfirmModal, Modal } from './components';
 
-export { filters, components };
+export { dateFilter, currencyFilter, ConfirmModal, Modal };

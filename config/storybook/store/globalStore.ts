@@ -7,7 +7,7 @@ const store = {
     count: 0,
   } as GlobalStoreState,
   mutations: {
-    increment(state: GlobalStoreState) {
+    increment (state: GlobalStoreState) {
       state.count++;
     },
   },

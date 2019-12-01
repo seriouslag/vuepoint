@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import Modal from './Modal.vue'
+import Modal from './Modal.vue';
 
 storiesOf('Foundation|Modal', module)
   .addDecorator(withKnobs)
@@ -39,11 +39,11 @@ storiesOf('Foundation|Modal', module)
       value: false,
     }),
     methods: {
-      open() {
+      open () {
         this.value = true;
         action('opened modal')();
       },
-      close() {
+      close () {
         this.value = false;
         action('closed modal')();
       },

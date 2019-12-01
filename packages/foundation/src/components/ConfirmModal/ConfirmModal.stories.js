@@ -1,8 +1,8 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs } from '@storybook/addon-knobs/react'
+import { storiesOf } from '@storybook/vue';
+import { withKnobs } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import ConfirmModal from './ConfirmModal.vue'
+import ConfirmModal from './ConfirmModal.vue';
 
 storiesOf('Foundation|ConfirmModal', module)
   .addDecorator(withKnobs)
@@ -41,12 +41,12 @@ storiesOf('Foundation|ConfirmModal', module)
       modalValue: false,
     }),
     methods: {
-      open() {
-        this.modalValue = true
+      open () {
+        this.modalValue = true;
       },
-      updateThing() {
+      updateThing () {
         action('thing was updated')();
         this.modalValue = false;
-      }
+      },
     },
   }));

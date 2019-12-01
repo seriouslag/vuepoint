@@ -43,11 +43,11 @@ storiesOf('Instagram|InstagramFeed', module)
       isLoading: false,
     }),
     methods: {
-      show(value) {
+      show (value) {
         this.isShowing = value;
       },
-      setLoading(loading) {
+      setLoading (loading) {
         this.isLoading = loading;
-      }
-    }
+      },
+    },
   }));

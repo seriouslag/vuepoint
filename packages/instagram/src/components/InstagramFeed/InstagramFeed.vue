@@ -23,7 +23,7 @@
             </div>
           </div>
         </figure>
-        <figure class="is-square" v-if="data.type === 'video'">
+        <figure class="is-square" v-if="data.type === 'video' && data.videos">
           <video :width="data.videos.standard_resolution.width" controls>
             <source :src="data.videos.standard_resolution.url" type="video/mp4">
             Not Available
@@ -56,7 +56,7 @@ export default class InstagramFeed extends Vue {
   @Prop({
     required: false,
     type: String,
-    default: ''
+    default: '',
   })
   private accessToken!: string;
 
@@ -67,7 +67,7 @@ export default class InstagramFeed extends Vue {
   })
   private count!: number
 
-  private async fetchFeed() {
+  private async fetchFeed () {
     const options: RequestInit = {
       method: 'GET',
     };
@@ -93,33 +93,33 @@ export default class InstagramFeed extends Vue {
   @Watch('count', { immediate: true })
   @Watch('accessToken', { immediate: true })
   @Watch('userId', { immediate: true })
-  private urlWatcher(newVal: string, oldVal: string): void {
+  private urlWatcher (newVal: string, oldVal: string): void {
     if (this.fullUrl && (!this.feed.length || newVal !== oldVal)) {
       this.fetchFeed();
     }
   }
 
   @Watch('isLoading', { immediate: true, deep: true })
-  private loadingWatech(): void {
+  private loadingWatech (): void {
     this.emitLoading();
   }
 
-  get query(): string {
-    return this.fullUrl.substring(this.fullUrl.indexOf('?'))
+  get query (): string {
+    return this.fullUrl.substring(this.fullUrl.indexOf('?'));
   }
 
-  get fullUrl(): string {
+  get fullUrl (): string {
     if (!this.userId || !this.accessToken || !this.count) return '';
     return `https://api.instagram.com/v1/users/${this.userId}/media/recent?access_token=${this.accessToken}&&count=${this.count}`;
   }
 
   @Emit('loading')
-  private emitLoading() {
+  private emitLoading () {
     return this.isLoading;
   }
 
   @Emit('show')
-  private emitShow() {
+  private emitShow () {
     return !!this.feed.length;
   }
 }

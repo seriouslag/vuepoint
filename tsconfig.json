@@ -15,7 +15,6 @@
       "jest",
       "node",
       "react",
-      "storybook__react",
       "webpack-env"
     ],
     "paths": {

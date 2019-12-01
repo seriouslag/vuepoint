@@ -1,7 +1,7 @@
 module.exports = {
   verbose: true,
   roots: [
-    "<rootDir>/packages"
+    '<rootDir>/packages',
   ],
   moduleFileExtensions: [
     'js',
@@ -9,12 +9,12 @@ module.exports = {
     'json',
     'vue',
     'ts',
-    'tsx'
+    'tsx',
   ],
   transform: {
     '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.(js|ts|tsx)$': 'ts-jest'
+    '^.+\\.(js|ts|tsx)$': 'ts-jest',
   },
   transformIgnorePatterns: [
     'node_modules',
@@ -25,20 +25,20 @@ module.exports = {
     '/data/',
     '/dist/',
     '/node_modules/',
-    '/vendor/'
+    '/vendor/',
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>packages/$1/src'
+    '^@/(.*)$': '<rootDir>packages/$1/src',
   },
   snapshotSerializers: [
-    'jest-serializer-vue'
+    'jest-serializer-vue',
   ],
   testMatch: [
-    '**/jest/*.spec.(js|jsx|ts|tsx)|__tests__/*.(js|jsx|ts|tsx)'
+    '**/jest/*.spec.(js|jsx|ts|tsx)|__tests__/*.(js|jsx|ts|tsx)',
   ],
   testURL: 'http://localhost/',
   watchPlugins: [
     'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname'
-  ]
-}
+    'jest-watch-typeahead/testname',
+  ],
+};

@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 import { addDecorator, configure } from '@storybook/vue';
 import { loadStories } from './require';
 
-// this store 
+// this store
 import store from './store';
 
 import 'bulma/bulma.sass';
@@ -18,6 +18,6 @@ addDecorator(() => ({
       <store />
       <story />
     </div>
-  `
+  `,
 }));
 configure(loadStories, module);
