@@ -18,7 +18,7 @@
     },
     {
       "language": "vue",
-      "autoFix": true,
+      "autoFix": true
     }
   ],
   "vetur.useWorkspaceDependencies": true,
@@ -29,5 +29,5 @@
   "vetur.validation.template": true,
   "vetur.format.scriptInitialIndent": false,
   "vetur.format.options.tabSize": 2,
-  "vetur.format.options.useTabs": false,
+  "vetur.format.options.useTabs": false
 }
