@@ -64,7 +64,8 @@
     "packages/*"
   ],
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "pre-push": "test:unit"
   },
   "lint-staged": {
     "*.js": [
