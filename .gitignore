@@ -22,7 +22,7 @@ yarn-error.log*
 *.sw?
 
 # VSCode
-.vscode
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
