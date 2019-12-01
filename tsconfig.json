@@ -18,8 +18,11 @@
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
-        "packages/*"
+      "@vuepoint/*": [
+        "packages/base/*/src"
+      ],
+      "@vuepoint-features/*": [
+        "packages/features/*/src"
       ]
     },
     "lib": [

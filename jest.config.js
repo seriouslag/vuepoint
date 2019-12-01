@@ -28,7 +28,8 @@ module.exports = {
     '/vendor/',
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>packages/$1/src',
+    '^@vuepoint/(.*)$': '<rootDir>packages/base/$1/src',
+    '^@vuepoint-features/(.*)$': '<rootDir>packages/features/$1/src',
   },
   snapshotSerializers: [
     'jest-serializer-vue',
