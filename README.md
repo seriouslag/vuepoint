@@ -1,6 +1,14 @@
 # vuepoint
 
+
+Requirements: node 12+
+
+
 ## Project setup
+
+``` bash
+yarn install
+```
 
 ``` bash
 yarn bootstrap
@@ -33,5 +41,5 @@ yarn test:unit
 ### Lints and fixes files
 
 ``` bash
-yarn run lint
+yarn lint
 ```
