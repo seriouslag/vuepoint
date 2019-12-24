@@ -1,3 +1,20 @@
 {
-  "extends": "../../../tsconfig.json"
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "incremental": true,
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@vuepoint/*": [
+        "../../../packages/foundation/*"
+      ],
+      "@vuepoint-features/*": [
+        "../../../packages/features/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

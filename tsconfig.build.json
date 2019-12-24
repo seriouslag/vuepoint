@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "esnext",
+    "module": "umd",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -17,11 +17,11 @@
     "composite": true,
     "noEmitOnError": true,
     "baseUrl": ".",
-    "rootDir": ".",
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "alwaysStrict": true,
     "preserveConstEnums": true,
@@ -31,10 +31,10 @@
     ],
     "paths": {
       "@vuepoint/*": [
-        "packages/base/*/src"
+        "../../../packages/base/*/src"
       ],
       "@vuepoint-features/*": [
-        "packages/features/*/src"
+        "../../../packages/features/*/src"
       ]
     },
     "lib": [
@@ -44,16 +44,6 @@
       "scripthost"
     ]
   },
-  "include": [
-    "config/**/*.ts",
-    "config/**/*.vue",
-    "stories/**/*.ts",
-    "stories/**/*.vue",
-    "tests/**/*.ts",
-    "packages/**/src/**/*.ts",
-    "packages/**/src/**/*.vue",
-    "packages/**/tests/**/*.ts"
-  ],
   "exclude": [
     "node_modules",
     "packages/**/node_modules",
