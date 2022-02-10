@@ -21,7 +21,7 @@
     "vue": "2.x",
     "@vue/cli-service": "^4.x",
     "@vue/cli-plugin-typescript": "^4.x",
-    "node-sass": "^4.x",
+    "node-sass": "^7.x",
     "sass-loader": "^8.x",
     "typescript": "^3.x",
     "vue-class-component": "^7.x",
